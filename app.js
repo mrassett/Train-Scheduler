@@ -1,5 +1,14 @@
+let todaysDate = new Date(); 
+let datetime = todaysDate.getDate() + "/"
+            + (todaysDate.getMonth()+1)  + "/" 
+            + todaysDate.getFullYear() + " @ "  
+            + todaysDate.getHours() + ":"  
+            + todaysDate.getMinutes() + ":" 
+            + todaysDate.getSeconds();
+
+document.write(datetime); 
   
-  //timestamp?
+  
   
   // Initialize Firebase
   var config = {
@@ -28,11 +37,14 @@
        name: name,
        destination: destination,
        frequency: frequency,
-       arrival: time 
+       arrival: time , 
+       timeAdded: firebase.database.ServerValue.TIMESTAMP
     }
 
 //push new train object to Firebase - database push
     database.ref().push(newTrain);
+
+    console.log(timeAdded);
 
 //clear inputs
 })
@@ -46,6 +58,35 @@
 
 database.ref().on("child_added", function(snapshot) {
       console.log(snapshot.val());
+      let storedName = snapshot.val().name;
+      let storedDestination = snapshot.val().destination;
+      let storedArrival = snapshot.val().arrival; 
+      let storedFrequency = snapshot.val().frequency;
+      console.log(storedName);
+      console.log(storedArrival);
+
+
+firebase.database().ref().on("value", function(snapshot){
+    $("#input-name").html(snapshot.val().name);
+    $("#input-destination").html(snapshot.val().destination);
+    $("#input-train-time").html(snapshot.val().arrival);
+    $("#input-frequency").html(snapshot.val().frequency);
+   
+    //clear function to clear values & allow new values to be entered
+    //create table data & rows (html) 
+    $("#train-table > tbody").append("<tr><td>" + storedName + "</td><td>" + storedDestination + "</td><td>" +
+    storedArrival + "</td><td>" + storedFrequency + "</td><td>");
+
+    $("#input-name").val("");
+    $("#input-destination").val("");
+    $("#input-train-time").val("");
+    $("#input-frequency").val("");
+
+
+//timestamp
+  moment().format('LTS');
+});
+
 });
 
 
@@ -53,4 +94,3 @@ database.ref().on("child_added", function(snapshot) {
 //manipulate numbers before re-appending 
 
 //moment.js to use time calcs
-//create table data & rows (html) through backticks 

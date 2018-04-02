@@ -1,7 +1,7 @@
-.panel {
-    border: none;
+p{
+float:  right;
+font-size: 1px;
 }
-
-div {
-    border: none;
+div .w3-panel{
+    color: darkslategrey;
 }

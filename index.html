@@ -26,6 +26,7 @@
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
      <!-- Google Fonts-->
+     <link href="https://fonts.googleapis.com/css?family=Belgrano|Brawler|Damion|Lato" rel="stylesheet">
 </head>
 
   <body>
@@ -34,9 +35,10 @@
     <div class="container">
 
       <!-- Jumbotron -->
-      <div class="jumbotron" style="background-color:gray; color: white">
-       <h1 class="text-center">  <i class="fas fa-subway"></i> Train Time Scheduler</h1>
-        <h3 class="text-center">Get going!</h3>
+      <div class="jumbotron" style="background-color:rgb(54, 59, 87); color: white">
+       <h1 class="text-center" style= "font-family: 'Brawler', serif;">  <i class="fas fa-subway"></i> Train Time Scheduler</h1>
+        <h3 class="text-center" style="font-family: 'Damion', cursive; color: white">Get going!</h3>
+        <p id ="time-now" style="font-size: 12px;"></p>
       </div>
 
       <div class="row">
@@ -44,19 +46,19 @@
         <div class="col-lg-12">
 
         <!-- Current Employees-->
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>Current Train Schedule</strong></h3>
+          <div class= "panel panel-primary" style= "border-color: rgb(54, 59, 87);">
+            <div class="panel-heading" style= "background-color: rgb(54, 59, 87);">
+              <h3 class="panel-title" style= "font-family: Lato', sans-serif" >Current Train Schedule</h3>
             </div>
-            <div class="panel-body" >
+            <div class="panel-body" style= "border-color: rgb(170, 164, 164)"; >
               <table class="table table-hover" id='train-table'>
-                <thead>
+                <thead >
                   <tr>
-                    <th>Train Name</th>
-                    <th>Destination</th>
-                    <th>Frequency(min)</th>
-                    <th>Next Arrival</th>
-                    <th>Minutes Away</th>
+                    <th style= "font-family: Lato', sans-serif";>Train Name</th>
+                    <th style= "font-family: Lato', sans-serif";>Destination</th>
+                    <th style= "font-family: Lato', sans-serif";>Frequency(min)</th>
+                    <th style= "font-family: Lato', sans-serif";>Next Arrival</th>
+                    <th style= "font-family: Lato', sans-serif";>Minutes Away</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -66,31 +68,31 @@
           </div>
 
           <!-- Add Employee  -->
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title"><strong>Add Train</strong></h3>
+          <div class= "panel panel-primary" style= "border-color: rgb(54, 59, 87);">
+            <div class="panel-heading" style= "background-color: rgb(54, 59, 87);">
+              <h3 class="panel-title" style= "font-family: Lato', sans-serif";>Add Train</h3>
             </div>
             <div class="panel-body">
 
               <!-- Entry Form -->
               <form >
                 <div class="form-group" >
-                  <label for="input-name">Train Name</label>
+                  <label for="input-name" style=  "font-family: Lato', sans-serif";>Train Name</label>
                   <input class="form-control" id="input-name" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="input-destination">Destination</label>
+                  <label for="input-destination" style= "font-family: Lato', sans-serif";>Destination</label>
                   <input class="form-control" id="input-destination" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="start-input">First Train Time (HH:mm - military time)</label>
+                  <label for="start-input"style= "font-family: Lato', sans-serif";>First Train Time (HH:mm - military time)</label>
                   <input class="form-control" id="input-train-time" type="text">
                 </div>
                 <div class="form-group">
-                  <label for="rate-input">Frequency (min)</label>
+                  <label for="rate-input"style= "font-family: Lato', sans-serif";>Frequency (min)</label>
                   <input class="form-control" id="input-frequency" type="text">
                 </div>
-                <button class="btn btn-primary" id="submit" type="submit">Submit</button>
+                <button class="btn btn-primary" id="submit" type="submit" style= "background-color: rgb(6, 6, 43)";>Submit</button>
               </form>
 
             </div>
